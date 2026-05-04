@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://wsmt5njvjhuw"]
+
+[ext_resource type="Script" path="res://IntroController.gd" id="2_3j6aa"]
+[ext_resource type="PackedScene" uid="uid://dm1ma8elgp5vd" path="res://Assets/MainRoom.glb" id="2_i8nq5"]
+[ext_resource type="PackedScene" uid="uid://b5osq1v2iengj" path="res://Assets/TableAndComputer.glb" id="3_861r4"]
+[ext_resource type="PackedScene" uid="uid://cfu8ellvnp6pc" path="res://Assets/Seat.glb" id="3_qsiva"]
+[ext_resource type="PackedScene" uid="uid://cabxy32n47dte" path="res://Assets/Shelf.glb" id="4_mdk1d"]
+[ext_resource type="PackedScene" uid="uid://b57enwiyn8jyk" path="res://Assets/ComputerIntake.glb" id="5_y0vtb"]
+[ext_resource type="PackedScene" uid="uid://d2vii1alwm0bl" path="res://Assets/Cartridge.glb" id="6_s0al2"]
+[ext_resource type="PackedScene" uid="uid://cne8rqmdpi23c" path="res://Assets/Cartridge2.glb" id="7_yrsa8"]
+[ext_resource type="PackedScene" uid="uid://d3r8jyrel3pte" path="res://Assets/Cartridge3.glb" id="8_h40kx"]
+
+[node name="IntroScene" type="Node3D"]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Fade2" type="ColorRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Camera_Floor" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.999405, -0.034481, 0, 0.034481, 0.999405, 1, 4.36854e-08, -1.50721e-09, 0.696663, 6.1802, 0.40639)
+
+[node name="Camera_Wall" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.462937, 0, -4.91714)
+
+[node name="Camera_Desk" type="Camera3D" parent="."]
+transform = Transform3D(0.488423, 0, -0.872607, 0, 1, 0, 0.872607, 0, 0.488423, 2.83783, 0.777525, 4.48055)
+
+[node name="Camera_Door" type="Camera3D" parent="."]
+transform = Transform3D(0.99999, 0, -0.00450277, 0, 1, 0, 0.00450277, 0, 0.99999, 3.05305, 0.170887, -4.89802)
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="IntroController" type="Node" parent="."]
+script = ExtResource("2_3j6aa")
+
+[node name="MainRoom" parent="." instance=ExtResource("2_i8nq5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.946282, -0.939364, -0.87574)
+
+[node name="Seat" parent="MainRoom" instance=ExtResource("3_qsiva")]
+transform = Transform3D(0.999906, 0, -0.0137179, 0, 1, 0, 0.0137179, 0, 0.999906, -2.01283, 0.0230458, -3.22851)
+
+[node name="TableAndComputer" parent="MainRoom" instance=ExtResource("3_861r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4605, -0.0116724, -3.25201)
+
+[node name="Shelf" parent="MainRoom" instance=ExtResource("4_mdk1d")]
+transform = Transform3D(0.983722, 0, 0.179695, 0, 1, 0, -0.179695, 0, 0.983722, -3.45768, 1.07697, -2.61463)
+
+[node name="ComputerIntake" parent="MainRoom" instance=ExtResource("5_y0vtb")]
+transform = Transform3D(0.988707, 0, -0.149863, 0, 1, 0, 0.149863, 0, 0.988707, -3.39423, 1.08895, -3.90447)
+
+[node name="Cartridge" parent="MainRoom" instance=ExtResource("6_s0al2")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3.37112, 1.43109, -2.60242)
+
+[node name="Cartridge2" parent="MainRoom" instance=ExtResource("7_yrsa8")]
+transform = Transform3D(-0.929217, 0, -0.369536, 0, 1, 0, 0.369536, 0, -0.929217, -3.37962, 1.31724, -2.6729)
+
+[node name="Cartridge3" parent="MainRoom" instance=ExtResource("8_h40kx")]
+transform = Transform3D(-0.916893, 0, -0.399133, 0, 1, 0, 0.399133, 0, -0.916893, -3.37454, 1.20939, -2.58421)

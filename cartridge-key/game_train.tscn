@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://d13hp7si76jux"]
+
+[ext_resource type="Script" path="res://train.gd" id="1_gwxrx"]
+[ext_resource type="PackedScene" uid="uid://c1f7pedwh6rlx" path="res://TrainAssets/Tunnel.glb" id="2_6if7f"]
+[ext_resource type="PackedScene" uid="uid://dkvqx2jvdbsor" path="res://TrainAssets/TunnelDark.glb" id="3_xb88t"]
+[ext_resource type="PackedScene" uid="uid://clov5fm4wuhqd" path="res://TrainAssets/Station.glb" id="4_efqsj"]
+[ext_resource type="PackedScene" uid="uid://ilsgwobp0vd7" path="res://TrainAssets/Train.glb" id="5_micco"]
+[ext_resource type="PackedScene" uid="uid://gjids3buhe74" path="res://TrainAssets/CCTV monitor.glb" id="6_2c8u0"]
+[ext_resource type="PackedScene" uid="uid://be62wp5rdt4sh" path="res://TrainAssets/DistanceDisplayBox.glb" id="7_8w5u0"]
+[ext_resource type="PackedScene" uid="uid://dxcx5yfhd1onb" path="res://TrainAssets/Lever.glb" id="8_gr5s6"]
+[ext_resource type="PackedScene" uid="uid://cah1aelovcc0m" path="res://TrainAssets/Door Button.glb" id="9_d6yof"]
+[ext_resource type="Script" path="res://TrainAssets/lever.gd" id="9_tcn1t"]
+[ext_resource type="PackedScene" uid="uid://dx80f2w5vdewk" path="res://TrainAssets/Control Panel.glb" id="10_v28yw"]
+[ext_resource type="Texture2D" uid="uid://b43fiolesxpyq" path="res://Assets/all-working-crosshairs-customizable-to-your-preference-to-v0-gyeyun6gqg291.png" id="12_6krw3"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ov2pi"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="TrainScene" type="Node3D" parent="."]
+script = ExtResource("1_gwxrx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="TrainScene"]
+
+[node name="Clock" type="Label" parent="TrainScene/CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+horizontal_alignment = 1
+
+[node name="MeterDisplay" type="Label3D" parent="TrainScene"]
+transform = Transform3D(0.235602, 0, 0, 0, 0.235602, 0, 0, 0, 0.235602, -0.0125282, 1.47027, -0.776573)
+
+[node name="Camera3D" type="Camera3D" parent="TrainScene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0771, 1.90019, 0.46204)
+current = true
+
+[node name="Tunnel" parent="TrainScene" instance=ExtResource("2_6if7f")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.19941, -0.989035, -17.2689)
+
+[node name="TunnelDark" parent="TrainScene" instance=ExtResource("3_xb88t")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.49547, 0, -33.6359)
+
+[node name="Station" parent="TrainScene" instance=ExtResource("4_efqsj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.177395, -0.96772, -49.4813)
+visible = false
+
+[node name="Train" parent="TrainScene" instance=ExtResource("5_micco")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00619826, 0, 0.259222)
+
+[node name="CCTV monitor" parent="TrainScene" instance=ExtResource("6_2c8u0")]
+transform = Transform3D(0.868632, 0, -0.495459, 0, 1, 0, 0.495459, 0, 0.868632, -0.149298, 2.12085, -0.713843)
+
+[node name="DistanceDisplayBox" parent="TrainScene" instance=ExtResource("7_8w5u0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022118, 1.25182, -1.01988)
+
+[node name="Lever" parent="TrainScene" instance=ExtResource("8_gr5s6")]
+transform = Transform3D(1, 0, 0, 0, 0.356314, -0.934366, 0, 0.934366, 0.356314, -1.60347, 1.0172, -0.588828)
+script = ExtResource("9_tcn1t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TrainScene/Lever/LeverShaft" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainScene/Lever/LeverShaft/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ov2pi")
+
+[node name="Door Button" parent="TrainScene" instance=ExtResource("9_d6yof")]
+transform = Transform3D(1, 0, 0, 0, 0.770458, -0.637491, 0, 0.637491, 0.770458, -0.467405, 1.12841, -0.640895)
+
+[node name="Control Panel" parent="TrainScene" instance=ExtResource("10_v28yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0203849, 0.00619054, -0.437307)
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="TrainScene"]
+
+[node name="TextureRect" type="TextureRect" parent="TrainScene/CanvasLayer4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -210.0
+offset_right = 210.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_6krw3")
+stretch_mode = 3
+
+[editable path="TrainScene/Tunnel"]
+[editable path="TrainScene/TunnelDark"]
+[editable path="TrainScene/Station"]
+[editable path="TrainScene/Train"]
+[editable path="TrainScene/CCTV monitor"]
+[editable path="TrainScene/DistanceDisplayBox"]
+[editable path="TrainScene/Lever"]
+[editable path="TrainScene/Door Button"]
+[editable path="TrainScene/Control Panel"]
