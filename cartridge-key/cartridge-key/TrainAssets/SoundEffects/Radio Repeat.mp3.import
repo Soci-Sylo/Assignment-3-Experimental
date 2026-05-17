@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgovy2oecnxyy"
+path="res://.godot/imported/Radio Repeat.mp3-9523c41e1d9dec3268be6c58b5b5a804.mp3str"
+
+[deps]
+
+source_file="res://TrainAssets/SoundEffects/Radio Repeat.mp3"
+dest_files=["res://.godot/imported/Radio Repeat.mp3-9523c41e1d9dec3268be6c58b5b5a804.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

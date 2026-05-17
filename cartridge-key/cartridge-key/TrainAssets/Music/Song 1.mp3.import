@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ekeuc2jewym4"
+path="res://.godot/imported/Song 1.mp3-eea1c5aa22a3d580e95241dea31aa7ef.mp3str"
+
+[deps]
+
+source_file="res://TrainAssets/Music/Song 1.mp3"
+dest_files=["res://.godot/imported/Song 1.mp3-eea1c5aa22a3d580e95241dea31aa7ef.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

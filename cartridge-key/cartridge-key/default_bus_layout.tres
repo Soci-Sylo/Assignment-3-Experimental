@@ -1,0 +1,36 @@
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://dsmgovlg15g3j"]
+
+[sub_resource type="AudioEffectEQ10" id="AudioEffectEQ10_flid8"]
+resource_name = "EQ10"
+band_db/31_hz = -60.0
+band_db/125_hz = -40.0
+band_db/250_hz = -10.0
+band_db/1000_hz = 6.0
+band_db/4000_hz = 20.0
+band_db/16000_hz = 24.0
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_m22lh"]
+resource_name = "Compressor"
+threshold = -20.0
+ratio = 8.0
+gain = 6.0
+release_ms = 100.0
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_jqsik"]
+resource_name = "Distortion"
+mode = 3
+drive = 0.1
+
+[resource]
+bus/1/name = &"Radio"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectEQ10_flid8")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectCompressor_m22lh")
+bus/1/effect/1/enabled = true
+bus/1/effect/2/effect = SubResource("AudioEffectDistortion_jqsik")
+bus/1/effect/2/enabled = true

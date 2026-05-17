@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dylnrmugjj8s5"
+path="res://.godot/imported/Song 9.mp3-7c8f9a0642d2c313ec1059cebe7b73ab.mp3str"
+
+[deps]
+
+source_file="res://TrainAssets/Music/Song 9.mp3"
+dest_files=["res://.godot/imported/Song 9.mp3-7c8f9a0642d2c313ec1059cebe7b73ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
